@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ class DogItemAdapter(
     class ItemViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.small_image)
         val textView1: TextView = view.findViewById(R.id.title)
+        val button: Button = view.findViewById(R.id.btu1)
 
     }
 
@@ -38,7 +40,7 @@ class DogItemAdapter(
         val item = dataset[position]
         holder.textView1.text = context.resources.getString(item.name)
         holder.imageView.setImageResource(item.imageId)
-        holder.imageView.setOnClickListener {
+        holder.button.setOnClickListener{
             val context = holder.view.context
             val intent = Intent(context, DogDetailActivity::class.java)
             intent.putExtra("name", item.name)
